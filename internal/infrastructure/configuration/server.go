@@ -1,13 +1,13 @@
-package app
+package configuration
 
 import (
-	"eventure_backend/internal/api"
+	"eventure_backend/internal/application"
 	"github.com/gin-gonic/gin"
 )
 
 type Server struct {
 	engine    *gin.Engine
-	apiRouter *api.Router
+	apiRouter *application.Router
 }
 
 func (s *Server) Start() {
@@ -15,7 +15,7 @@ func (s *Server) Start() {
 	s.engine.Run()
 }
 
-func NewServer(engine *gin.Engine, apiRouter *api.Router) *Server {
+func NewServer(engine *gin.Engine, apiRouter *application.Router) *Server {
 	return &Server{
 		engine:    engine,
 		apiRouter: apiRouter,

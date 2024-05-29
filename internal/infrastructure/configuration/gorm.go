@@ -1,4 +1,4 @@
-package database
+package configuration
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ const DB_PORT = "5432"
 
 var Db *gorm.DB
 
-func InitializeDatabase() *gorm.DB {
+func ProvideGormDB() *gorm.DB {
 	Db = connectDB()
 	return Db
 }
@@ -30,8 +30,6 @@ func connectDB() *gorm.DB {
 		fmt.Printf("Error connecting to database : error=%v", err)
 		return nil
 	}
-
-	// db.AutoMigrate(&models.User{}) // Uncomment this line after defining your models
 
 	return db
 }
