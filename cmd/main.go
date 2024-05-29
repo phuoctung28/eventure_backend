@@ -1,6 +1,8 @@
 package main
 
+import . "eventure_backend/internal/infrastructure"
+
 func main() {
-	server := InitializeApplication()
+	server := InitializeApp()
 	server.Start()
 }
